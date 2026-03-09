@@ -9,3 +9,61 @@
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
+
+@layer utilities {
+    .bg-grid {
+        background-image:
+            linear-gradient(to right, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+        background-size: 48px 48px;
+        background-position: 0 0;
+        mask-image: radial-gradient(ellipse at center, black 20%, transparent 70%);
+    }
+
+    .bg-noise {
+        background-image:
+            repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.035) 0, rgba(255, 255, 255, 0.035) 1px, transparent 1px, transparent 2px),
+            repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.022) 0, rgba(255, 255, 255, 0.022) 1px, transparent 1px, transparent 3px);
+        background-size: 240px 240px;
+        filter: blur(0.2px);
+    }
+
+    .animate-aurora {
+        animation: auroraShift 14s ease-in-out infinite alternate;
+        transform-origin: center;
+    }
+
+    .animate-scan {
+        animation: scanSweep 2.8s linear infinite;
+        transform: translateX(-40%);
+    }
+}
+
+@keyframes auroraShift {
+    0% {
+        transform: translate3d(-1.5%, -1%, 0) scale(1.02);
+        opacity: 0.35;
+    }
+    50% {
+        transform: translate3d(1.2%, 0.8%, 0) scale(1.05);
+        opacity: 0.48;
+    }
+    100% {
+        transform: translate3d(2.5%, -0.6%, 0) scale(1.07);
+        opacity: 0.38;
+    }
+}
+
+@keyframes scanSweep {
+    0% {
+        transform: translateX(-55%);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(135%);
+        opacity: 0;
+    }
+}
